@@ -15,3 +15,7 @@ Technologies & Tools Used
 - Monitoring: htop, Glances, journalctl, dmesg
 - Security: UFW (Uncomplicated Firewall)
 - Version Control: GitHub
+
+
+Unfortunately, the linux machine and host machine crashed after trying to edit the script file. I did automate with Cron, installing the monitoring tools, and enabling the firewall. Unfortuantely, the script crashed and I was not able to get screenshots.
+I do have the code I used and will link that in the full .txt file that shows every prompt that was written to complete this project. 
