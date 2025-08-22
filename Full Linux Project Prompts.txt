@@ -1,0 +1,56 @@
+#Updating the system
+
+sudo apt update && sudo apt upgrade -y
+
+
+
+#Installing the Web Server
+
+sudo apt install apache2 -y
+
+
+
+#Customizing the Web Page
+
+sudo nano /var/www/html/index.html
+
+after running this prompt, it popped open the HTML file for the apache2 localhost file, that I edited with my name and "Project Demo" in the title.
+
+
+
+#Creating a web user admin
+
+sudo adduser webadmin
+sudo usermod -aG www-data webadmin
+sudo chown -R webadmin:www-data /var/www/html
+sudo chmod -R 775 /var/www/html
+
+after running this prompt, it gave me the option to give the name to the admin, their phone number, as well as setting the password for the admin user account. 
+
+
+
+#Adding the Backup Script
+
+su - webadmin
+nano backup_web.sh
+
+after running the second prompt, it gave me a blank terminal to write my bash file, which I added to the Repo as well.
+
+
+#Automating with Cron
+
+crontab -e
+0 2 * * * /home/webadmin/backup_web.sh
+
+This second prompt allows for the script to run daily at an allotted time, in this case it was 2am
+
+
+#Enabling the basic Firewall
+
+sudo apt install ufw -y
+sudo ufw allow OpenSSH
+sudo ufw allow "Apache Full"
+sudo ufw enable
+sudo ufw status
+
+
