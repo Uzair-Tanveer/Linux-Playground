@@ -1,0 +1,21 @@
+# =========================================================
+# This script backs up the Apache web directory
+# and saves it in /home/webadmin/backups with timestamp.
+# =========================================================
+
+
+# Backup directory path
+BACKUP_DIR="/home/webadmin/backups"
+
+# Date format for filename
+DATE=$(date +%F_%H-%M-%S)
+
+# Ensure backup directory exists
+mkdir -p $BACKUP_DIR
+
+# Create compressed backup file
+tar -czf $BACKUP_DIR/web_backup_$DATE.tar.gz /var/www/html
+
+# Print completion message
+echo "Backup completed successfully!"
+echo "Saved as: $BACKUP_DIR/web_backup_$DATE.tar.gz"
