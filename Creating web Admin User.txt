@@ -1,0 +1,4 @@
+sudo adduser webadmin
+sudo usermod -aG www-data webadmin
+sudo chown -R webadmin:www-data /var/www/html
+sudo chmod -R 775 /var/www/html
